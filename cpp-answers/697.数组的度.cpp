@@ -3,7 +3,7 @@
  * @Author: Hongyang_Yang
  * @Date: 2020-06-22 21:33:40
  * @LastEditors: Hongyang_Yang
- * @LastEditTime: 2020-06-22 21:37:59
+ * @LastEditTime: 2020-07-28 09:32:02
  */
 /*
  * @lc app=leetcode.cn id=697 lang=cpp
@@ -17,36 +17,32 @@ class Solution
 public:
     int findShortestSubArray(vector<int> &nums)
     {
-        unordered_map<int, int> times;
-        int cnt = 0;
-        int cnt_n = 0;
+        //双指针，首先扫描一遍求出数组的度，然后哈希表维护双指针指向的区间
+        unordered_map<int, int> mp;
+        int d = 0;
         for (int i = 0; i < nums.size(); i++)
         {
-            times[nums[i]]++;
-            if (times[nums[i]] >= cnt)
-            {
-                cnt = times[nums[i]];
-                cnt_n = nums[i];
-            }
+            mp[nums[i]]++;
+            d = max(d, mp[nums[i]]);
         }
-        int res = 0;
-        int i = 0;
-        for (i = 0; i < nums.size(); i++)
+        unordered_map<int, int> mp2pointer;
+        int l = 0, r = 0;
+        int ans = 1e7;
+        while (r < nums.size())
         {
-            if (nums[i] == cnt_n)
+            mp2pointer[nums[r]]++;
+            if (mp2pointer[nums[r]] == d)
             {
-                break;
+                while (l <= r && mp2pointer[nums[r]] == d)
+                {
+                    mp2pointer[nums[l]]--;
+                    l++;
+                }
+                ans = min(ans, r - l + 2);
             }
+            r++;
         }
-        int j = 0;
-        for (j = nums.size() - 1; j >= 0; j--)
-        {
-            if (nums[j] == cnt_n)
-            {
-                break;
-            }
-        }
-        return j - i + 1;
+        return ans;
     }
 };
 // @lc code=end
