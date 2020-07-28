@@ -1,0 +1,34 @@
+{
+  // 有关 tasks.json 格式的文档，请参见
+  // Tasks in Visual Studio Code
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "type": "shell",
+      "label": "g++",
+      "command": "D:\\Mingw\\x86_64-8.1.0-release-posix-seh-rt_v6-rev0\\mingw64\\bin\\g++.exe",
+      "args": [
+        "-g",
+        "${file}",
+        "-o",
+        "${fileDirname}\\${fileBasenameNoExtension}.exe"
+      ],
+      "options": {
+        "cwd": "D:\\Mingw\\x86_64-8.1.0-release-posix-seh-rt_v6-rev0\\mingw64\\bin"
+      },
+      "problemMatcher": ["$gcc"],
+      "group": "build"
+    },
+
+    {
+      "type": "shell",
+      "label": "g++",
+      "command": "D:\\Mingw\\x86_64-8.1.0-release-posix-seh-rt_v6-rev0\\mingw64\\bin\\g++.exe",
+      "args": ["-o", "${fileBasenameNoExtension}", "${file}"],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    }
+  ]
+}
