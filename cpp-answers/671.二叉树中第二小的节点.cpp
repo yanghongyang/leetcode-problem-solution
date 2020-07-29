@@ -3,7 +3,7 @@
  * @Author: Hongyang_Yang
  * @Date: 2020-06-28 17:42:41
  * @LastEditors: Hongyang_Yang
- * @LastEditTime: 2020-07-09 23:31:40
+ * @LastEditTime: 2020-07-29 16:39:08
  */
 /*
  * @lc app=leetcode.cn id=671 lang=cpp
@@ -24,21 +24,35 @@
 class Solution
 {
 public:
+    // root->val = min(root->left->val, root->right->val);
+    // BFS + 队列 + 迭代
+    // 特点： 根节点一定是最小的，但是根节点的孩子节点不一定是第二小的
     int findSecondMinimumValue(TreeNode *root)
     {
-        int res = INT_MAX;
-        DFS(root, root->val, res);
-        return res == INT_MAX ? -1 : res;
-    }
-
-    void DFS(TreeNode *root, int val, int &res)
-    {
         if (!root)
-            return;
-        if (root->val != val)
-            res = min(res, root->val);
-        if (root->val == val)
-            DFS(root->left, val, res), DFS(root->right, val, res);
+            return -1;
+        queue<TreeNode *> q;
+        q.push(root);
+        vector<int> tmp;
+        while (!q.empty())
+        {
+            int n = q.size();
+            for (int i = 0; i < n; i++)
+            {
+                TreeNode *node = q.front();
+                q.pop();
+                tmp.push_back(node->val);
+                if (node->left)
+                    q.push(node->left);
+                if (node->right)
+                    q.push(node->right);
+            }
+        }
+        sort(tmp.begin(), tmp.end());
+        for (auto x : tmp)
+            if (x != root->val)
+                return x;
+        return -1;
     }
 };
 // @lc code=end
