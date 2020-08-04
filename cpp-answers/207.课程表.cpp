@@ -10,7 +10,8 @@
 class Solution
 {
 public:
-    bool canFinish(int numCourses, vector<vector<int>> &prerequisites)
+    //BFS
+    /* bool canFinish(int numCourses, vector<vector<int>> &prerequisites)
     {
         int m = prerequisites.size();
         vector<int> vec1(numCourses, 0);      //存储入度
@@ -44,6 +45,37 @@ public:
             }
         }
         return cnt == numCourses;
+    } */
+    //DFS
+    bool dfs(int x, vector<int> &vis, vector<vector<int>> &ans)
+    {
+        vis[x] = 0; //表示当前节点已经访问过了
+        bool ret = true;
+        for (auto v : ans[x])
+        {
+            if (vis[v] == 0)
+                return false;
+            if (vis[v] == -1)
+                ret = ret && dfs(v, vis, ans);
+        }
+        vis[x] = -1; //表示以这个点出发的所有点已经遍历完了。
+        return ret;
+    }
+    bool canFinish(int numCourses, vector<vector<int>> &prerequisites)
+    {
+        vector<vector<int>> ans(numCourses, vector<int>());
+        vector<int> vis(numCourses, -1); //判断是否访问过，初始化为-1，即没有访问过
+        for (auto v : prerequisites)
+        {
+            ans[v[1]].push_back(v[0]);
+        }
+        bool ret = true;
+        for (int i = 0; i < numCourses; i++)
+        {
+            if (vis[i] == -1)
+                ret = ret && dfs(i, vis, ans);
+        }
+        return ret;
     }
 };
 // @lc code=end
