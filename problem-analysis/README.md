@@ -1,7 +1,12 @@
 #####  Description
 
-##### ÃèÊö
+##### æè¿°
 
 This is a folder for problem analysis of Leetcode problems.
 
-ÕâÊÇ×¨ÃÅÓÃÀ´Ğ´LeetcodeÌâ½âµÄÎÄ¼ş¼Ğ¡£
+è¿™æ˜¯ä¸“é—¨ç”¨æ¥å†™Leetcodeé¢˜è§£çš„æ–‡ä»¶å¤¹ã€‚
+
+#### å†…å®¹
+Most of the problem solutions are about the daily problem on the Leetcode-cn website.
+
+å¤§éƒ¨åˆ†é¢˜è§£é’ˆå¯¹Leetcodeçš„æ¯æ—¥ä¸€é¢˜ï¼ˆä»2020å¹´8æœˆèµ·ï¼‰
