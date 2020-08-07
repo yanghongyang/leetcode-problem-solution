@@ -5,7 +5,7 @@
  */
 
 // @lc code=start
-class Automata {
+/* class Automata {
 public:
     string state = "start";
     unordered_map<string, vector<string>> table = {
@@ -49,7 +49,7 @@ public:
                 sign = -1;
         }
     }
-};
+}; */
 class Solution {
 public:
     //暴力模拟，由于一遍循环，效果出奇的好
@@ -72,12 +72,26 @@ public:
         return result * indicator;
     } */
     //有限状态机
+/*     
     int myAtoi(string str)
     {
         Automata dfa;
         for(char c : str)
             dfa.get(c);
         return dfa.sign * dfa.ans;
+    } */
+    //当然也可以直接调用isstringstream
+    int myAtoi(string str)
+    {
+        istringstream is(str);
+        int num = 0;
+        is >> num;
+        /* if(num > INT_MAX)
+            return INT_MAX;
+        else if(num < INT_MIN)
+            return INT_MIN;
+        else  */
+            return num;
     }
 };
 // @lc code=end
