@@ -93,6 +93,7 @@ public:
 class Solution {
 public:
     //动态规划，准确地说是0-1背包
+    //这种方法极耗时间和内存，不知道当初这种XX方法是谁想出来的（不是我不是我！无嘲讽含义！像提供多种解法的前辈们致以崇高敬意！）
     vector<vector<int>> combinationSum2(vector<int>& candidates, int target) {
         unordered_map<int, set<vector<int>>> res;   //建立整数到集合的映射，集合中包含和为该整数的所有组合）
         for(int i = 1; i <= target; i++)    //对于i来讲，从1一直循环计算到target
