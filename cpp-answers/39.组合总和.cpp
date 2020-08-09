@@ -35,7 +35,7 @@ public:
         return res;
     }*/
 
-    //这道题其实还有迭代解法，对应的是动态规划（持怀疑态度，感觉最优子结构什么的不是很明晰）
+    //这道题其实还有迭代解法，对应的是动态规划
     //万分感谢C++强大的STL
     vector<vector<int>> combinationSum(vector<int>& candidates, int target) 
     {
