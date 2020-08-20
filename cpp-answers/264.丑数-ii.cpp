@@ -3,7 +3,7 @@
  * @Author: Hongyang_Yang
  * @Date: 2020-08-20 09:42:05
  * @LastEditors: Hongyang_Yang
- * @LastEditTime: 2020-08-20 09:44:52
+ * @LastEditTime: 2020-08-20 10:12:05
  */
 /*
  * @lc app=leetcode.cn id=264 lang=cpp
@@ -15,7 +15,7 @@
 class Solution
 {
 public:
-    int nthUglyNumber(int n)
+    /* int nthUglyNumber(int n)
     {
         if (n <= 0)
             return 0;
@@ -35,6 +35,27 @@ public:
                 t5++;
         }
         return k[n - 1];
+    } */
+    int nthUglyNumber(int n)
+    {
+        priority_queue<double, vector<double>, greater<double>> q;
+        if (n <= 0)
+            return 0;
+        if (n == 1)
+            return 1;
+        double ans = 1;
+        for (int i = 1; i < n; i++)
+        {
+            q.push(ans * 2);
+            q.push(ans * 3);
+            q.push(ans * 5);
+            ans = q.top();
+            q.pop();
+            //去掉重复元素
+            while (!q.empty() && ans == q.top())
+                q.pop();
+        }
+        return ans;
     }
 };
 // @lc code=end
