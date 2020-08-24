@@ -3,7 +3,7 @@
  * @Author: Hongyang_Yang
  * @Date: 2020-07-17 07:40:50
  * @LastEditors: Hongyang_Yang
- * @LastEditTime: 2020-07-17 08:06:45
+ * @LastEditTime: 2020-08-24 11:56:30
  */
 /*
  * @lc app=leetcode.cn id=459 lang=cpp
@@ -15,7 +15,7 @@
 class Solution
 {
 public:
-    bool repeatedSubstringPattern(string s)
+    /*     bool repeatedSubstringPattern(string s)
     {
         if (s.size() == 0)
             return true;
@@ -37,6 +37,38 @@ public:
                 return true;
         }
         return false;
+    } */
+    bool repeatedSubstringPattern(string s)
+    {
+        if (s.size() == 0)
+            return true;
+        if (s.size() == 1)
+            return false;
+        int n = s.size();
+        for (int i = 1; i * 2 <= n; i++)
+        {
+            if (n % i == 0)
+            {
+                bool flag = true;
+                for (int j = i; j < n; j++)
+                {
+                    if (s[j] != s[j - i])
+                    {
+                        flag = false;
+                        break;
+                    }
+                }
+                if (flag)
+                    return true;
+            }
+        }
+        return false;
+        /*
+        string str = s + s;
+        str = str.substr(1, str.size() - 2);
+        if (str.find(s) == -1)
+            return false;
+        return true;*/
     }
 };
 // @lc code=end
