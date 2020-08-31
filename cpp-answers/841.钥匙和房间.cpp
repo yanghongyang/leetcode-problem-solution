@@ -3,7 +3,7 @@
  * @Author: Hongyang_Yang
  * @Date: 2020-08-31 17:35:50
  * @LastEditors: Hongyang_Yang
- * @LastEditTime: 2020-08-31 17:45:58
+ * @LastEditTime: 2020-08-31 17:50:36
  */
 /*
  * @lc app=leetcode.cn id=841 lang=cpp
@@ -40,7 +40,7 @@ public:
         return true;
     } */
     //改成BFS试试吧，感觉会很优雅
-    bool canVisitAllRooms(vector<vector<int>> &rooms)
+    /*     bool canVisitAllRooms(vector<vector<int>> &rooms)
     {
         vector<bool> vis(rooms.size(), false);
         queue<int> q;
@@ -71,7 +71,32 @@ public:
                 return false;
         }
         return true;
-    }
+    } */
     //emmmmmBFS也不怎么优雅啊......
+    //啊看了官方题解......原来不是BFS不优雅，是在下的写法太冗余了......
+    //有啥办法呢谁让我是菜鸡！大声喊！我是菜鸡！！！（声嘶力竭）
+    bool canVisitAllRooms(vector<vector<int>> &rooms)
+    {
+        vector<bool> vis(rooms.size(), false);
+        queue<int> q;
+        vis[0] = true;
+        q.push(0);
+        int cnt = 0;
+        while (!q.empty())
+        {
+            int curKey = q.front();
+            q.pop();
+            cnt++;
+            for (int i = 0; i < rooms[curKey].size(); i++)
+            {
+                if (vis[rooms[curKey][i]] != true)
+                {
+                    vis[rooms[curKey][i]] = true;
+                    q.push(rooms[curKey][i]);
+                }
+            }
+        }
+        return cnt == rooms.size();
+    }
 };
 // @lc code=end
