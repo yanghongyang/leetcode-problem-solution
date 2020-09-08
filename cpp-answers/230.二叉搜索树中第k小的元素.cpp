@@ -3,7 +3,7 @@
  * @Author: Hongyang_Yang
  * @Date: 2020-09-09 07:37:12
  * @LastEditors: Hongyang_Yang
- * @LastEditTime: 2020-09-09 07:50:36
+ * @LastEditTime: 2020-09-09 07:51:15
  */
 /*
  * @lc app=leetcode.cn id=230 lang=cpp
@@ -40,7 +40,7 @@ public:
     {
         return find(root, k);
     } */
-    //个人更倾向于这种递归23333
+    //个人更倾向于这种递归23333简单粗暴
     /*     void inorder(TreeNode *root, vector<int> &sorted)
     {
         if (!root)
