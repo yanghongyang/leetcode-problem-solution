@@ -3,7 +3,7 @@
  * @Author: Hongyang_Yang
  * @Date: 2020-12-29 17:04:26
  * @LastEditors: Hongyang_Yang
- * @LastEditTime: 2020-12-29 17:54:43
+ * @LastEditTime: 2020-12-29 17:56:50
  */
 /*
  * @lc app=leetcode.cn id=30 lang=cpp
@@ -30,15 +30,15 @@ public:
         int len = wl * words.size();
         for (int i = 0; i < n - len + 1; i++)
         {
-            unordered_map<string, int> seen;
+            unordered_map<string, int> curcnt;
             int j = 0;
             for (; j < words.size(); j++)
             {
                 string word = s.substr(i + j * wl, wl); //在s的i+j*wl处取长度为wl的子串
                 if (cnt.find(word) != cnt.end())        //如果在cnt中可以找到
                 {
-                    seen[word]++;               //在seen数组中该word数++
-                    if (seen[word] > cnt[word]) //如果当前seen[word]个数超过了cnt[word]，也就是超过了words中该word出现的次数，则失败
+                    curcnt[word]++;               //在curcnt数组中该word数++
+                    if (curcnt[word] > cnt[word]) //如果当前curcnt[word]个数超过了cnt[word]，也就是超过了words中该word出现的次数，则失败
                         break;
                 }
                 else //找不到的话就肯定是失败，跳出循环
