@@ -3,7 +3,7 @@
  * @Author: Hongyang_Yang
  * @Date: 2020-06-25 23:45:23
  * @LastEditors: Hongyang_Yang
- * @LastEditTime: 2020-07-09 22:48:33
+ * @LastEditTime: 2020-12-30 10:40:21
  */
 /*
  * @lc app=leetcode.cn id=4 lang=cpp
@@ -15,7 +15,7 @@
 class Solution
 {
 public:
-    int kth(vector<int> &a, int m, vector<int> &b, int n, int k)
+    int kth(vector<int> &a, int m, vector<int> &b, int n, int k) //默认情况下a.size()>b.size()
     {
         if (m < n)
             return kth(b, n, a, m, k);
@@ -27,8 +27,12 @@ public:
         int j = min(n, k / 2);
         int i = k - j;
         if (a[i - 1] > b[j - 1])
-            return kth(a, i, b + j, n - j, k - j);
-        return kth(a + i, m - i, b, j, k - i);
+        {
+            vector<int> tmp(b.begin() + j, b.end());
+            return kth(a, i, tmp, n - j, k - j);
+        }
+        vector<int> tmpa(a.begin() + i, a.end());
+        return kth(tmpa, m - i, b, j, k - i);
     }
     double findMedianSortedArrays(vector<int> &nums1, vector<int> &nums2)
     {
