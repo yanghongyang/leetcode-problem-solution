@@ -3,7 +3,7 @@
  * @Author: Hongyang_Yang
  * @Date: 2020-11-03 11:22:23
  * @LastEditors: Hongyang_Yang
- * @LastEditTime: 2020-11-03 11:32:45
+ * @LastEditTime: 2020-12-30 11:53:49
 -->
 ### 简介
 vector中也有erase方法，用来删除vector的单个元素（凭借元素位置）或者一整个范围的元素（给定起始位置和终止位置）。
@@ -61,3 +61,9 @@ myvector contains: 4 5 7 8 9 10
 
 ### 时间复杂度
 线性，即正比于（删除元素+该元素后所有元素）。
+
+### 应用
+删除 `nums` 中的重复元素
+```cpp
+nums.erase(unique(nums.begin(), nums.end()), nums.end());
+```
