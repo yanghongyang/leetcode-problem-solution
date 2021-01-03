@@ -4,7 +4,7 @@
  * @Author: Hongyang_Yang
  * @Date: 2021-01-03 20:37:01
  * @LastEditors: Hongyang_Yang
- * @LastEditTime: 2021-01-03 20:53:22
+ * @LastEditTime: 2021-01-03 20:59:26
 -->
 #### 考点
 1. 二分查找
@@ -48,6 +48,7 @@ public:
 一种改进策略为，使用 `multiset` 将 `vector<int>& A` 中的元素进行拷贝（得到 `mA`，然后再对 `mA` 进行排序和删除。大体思路和使用 `vector` 的思路一致，但由于 `multiset` 的删除操作仅需要 `O(logn)` 时间，因此大大提高了时间效率。
 
 #### 代码（使用 multiset ）
+```cpp []
 vector<int> advantageCount(vector<int> &A, vector<int> &B)
 {
     vector<int> ans;
@@ -70,7 +71,7 @@ vector<int> advantageCount(vector<int> &A, vector<int> &B)
     }
     return ans;
 }
-
+```
 
 #### 后记
 本题还有双指针解法，但没有仔细想。
