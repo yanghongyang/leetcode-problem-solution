@@ -4,7 +4,7 @@
  * @Author: Hongyang_Yang
  * @Date: 2021-01-03 20:37:01
  * @LastEditors: Hongyang_Yang
- * @LastEditTime: 2021-01-03 20:59:26
+ * @LastEditTime: 2021-01-03 21:05:45
 -->
 #### 考点
 1. 二分查找
@@ -45,7 +45,7 @@ public:
 
 这种朴素的方法会非常耗时。原因在于我们在删除 `A` 中元素时，由于 `A` 是一个 `vector` ，因此在调用 `vector` 中的 `erase` 方法时，由于 `erase()` 方法时间复杂度为 `O(n)` ，因此消耗了大量时间。
 
-一种改进策略为，使用 `multiset` 将 `vector<int>& A` 中的元素进行拷贝（得到 `mA`，然后再对 `mA` 进行排序和删除。大体思路和使用 `vector` 的思路一致，但由于 `multiset` 的删除操作仅需要 `O(logn)` 时间，因此大大提高了时间效率。
+一种改进策略为，使用 `multiset` 将 `vector<int>& A` 中的元素进行拷贝。大体思路和使用 `vector` 的思路一致，但由于 `multiset` 的删除操作仅需要 `O(logn)` 时间，因此大大提高了时间效率。
 
 #### 代码（使用 multiset ）
 ```cpp []
