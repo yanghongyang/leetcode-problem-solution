@@ -8,7 +8,7 @@
 class Solution
 {
 public:
-    bool checkInclusion(string s1, string s2)
+    /*     bool checkInclusion(string s1, string s2)
     {
         int len1 = s1.size();
         int len2 = s2.size();
@@ -38,6 +38,24 @@ public:
                 return true;
             left++;
             right++;
+        }
+        return false;
+    } */
+    bool checkInclusion(string s1, string s2)
+    {
+        int len1 = s1.size();
+        int len2 = s2.size();
+        int left = 0, right = len1 - 1; //在s2中的左右指针
+        vector<int> cur(26), goal(26);
+        for (char c : s1)
+            goal[c - 'a']++;
+        for (int i = 0; i < len2; i++)
+        {
+            cur[s2[i] - 'a']++;
+            if (i >= s1.size())
+                cur[s2[i - s1.size()] - 'a']--;
+            if (goal == cur)
+                return true;
         }
         return false;
     }
