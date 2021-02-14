@@ -76,7 +76,7 @@ bool checkInclusion(string s1, string s2)
 }
 ```
 
-时间复杂度： $O(n)$
+时间复杂度： $O(n)$ ，这里 n 为 s2 的长度。
 空间复杂度： $O(1)$ ，这里理解为，尽管开了两个 vector ，但是 vector 中的元素个数都为常数。
 
 ### 后记
