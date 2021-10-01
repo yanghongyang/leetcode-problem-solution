@@ -30,4 +30,26 @@ public:
         return "";
     }
 };
+
+// 另一种通过方式（同一种方法，用的 unordered_map）
+class Solution
+{
+public:
+    string destCity(vector<vector<string>> &paths)
+    {
+        unordered_map<string, int> cnt;
+        for (auto p : paths)
+        {
+            cnt[p[0]] = 1;
+        }
+        for (auto p : paths)
+        {
+            if (cnt.count(p[1]) == 0)
+            {
+                return p[1];
+            }
+        }
+        return "";
+    }
+};
 // @lc code=end
