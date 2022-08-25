@@ -1,7 +1,4 @@
 {
-  // 使用 IntelliSense 了解相关属性。
-  // 悬停以查看现有属性的描述。
-  // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387
   "version": "0.2.0",
   "configurations": [
     {
@@ -18,7 +15,7 @@
       "stopAtEntry": false,
       "cwd": "${workspaceFolder}",
       "environment": [],
-      "externalConsole": true, // 调试时是否显示控制台窗口，一般设置为true显示控制台
+      "externalConsole": true,
       "MIMode": "gdb",
       "miDebuggerPath": "D:\\Mingw\\x86_64-8.1.0-release-posix-seh-rt_v6-rev0\\mingw64\\bin\\gdb.exe",
       "setupCommands": [
@@ -28,7 +25,26 @@
           "ignoreFailures": true
         }
       ],
-      "preLaunchTask": "g++" // 调试会话开始前执行的任务，一般为编译程序，c++为g++, c为gcc
+      "preLaunchTask": "g++"
+    },
+    {
+      "name": "C/C++ Runner: Debug Session",
+      "type": "cppdbg",
+      "request": "launch",
+      "args": [],
+      "stopAtEntry": false,
+      "externalConsole": true,
+      "cwd": "e:/Github_Project/Leetcode-solution/leetcode-problem-solution/cpp-answers",
+      "program": "e:/Github_Project/Leetcode-solution/leetcode-problem-solution/cpp-answers/build/Debug/outDebug",
+      "MIMode": "gdb",
+      "miDebuggerPath": "gdb",
+      "setupCommands": [
+        {
+          "description": "Enable pretty-printing for gdb",
+          "text": "-enable-pretty-printing",
+          "ignoreFailures": true
+        }
+      ]
     }
   ]
 }
